@@ -3,9 +3,9 @@
 
 # 1. KÉO SOURCE CODE TỪ GITHUB CỦA BẠN VỀ COLAB
 # Thay thế đường dẫn bằng link repository Github của bạn (VD: https://github.com/Pain0402/...)
-!git clone https://github.com/Thay-Ten-Cua-Ban_Vao-Day/AnimeAI-Webtoon-Pipeline.git
+!git clone https://github.com/Pain0402/Agentic-Story-Creator.git
 import os
-os.chdir('AnimeAI-Webtoon-Pipeline')
+os.chdir('Agentic-Story-Creator')
 
 # (Nếu bạn dùng Google Drive thì XÓA 4 dòng trên, và BỎ COMMENT 3 dòng dưới đây)
 # from google.colab import drive
