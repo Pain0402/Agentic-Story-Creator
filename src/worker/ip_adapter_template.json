@@ -1,0 +1,127 @@
+{
+    "3": {
+        "class_type": "KSampler",
+        "inputs": {
+            "seed": 1337,
+            "steps": 25,
+            "cfg": 7,
+            "sampler_name": "euler",
+            "scheduler": "normal",
+            "denoise": 1,
+            "model": [
+                "10",
+                0
+            ],
+            "positive": [
+                "6",
+                0
+            ],
+            "negative": [
+                "7",
+                0
+            ],
+            "latent_image": [
+                "5",
+                0
+            ]
+        }
+    },
+    "4": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+            "ckpt_name": "animagine-xl-3.1.safetensors"
+        }
+    },
+    "5": {
+        "class_type": "EmptyLatentImage",
+        "inputs": {
+            "batch_size": 1,
+            "width": 832,
+            "height": 1216
+        }
+    },
+    "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+            "text": "A girl sitting in a cafe...",
+            "clip": [
+                "4",
+                1
+            ]
+        }
+    },
+    "7": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+            "text": "lowres, bad anatomy...",
+            "clip": [
+                "4",
+                1
+            ]
+        }
+    },
+    "8": {
+        "class_type": "VAEDecode",
+        "inputs": {
+            "samples": [
+                "3",
+                0
+            ],
+            "vae": [
+                "4",
+                2
+            ]
+        }
+    },
+    "9": {
+        "class_type": "SaveImage",
+        "inputs": {
+            "filename_prefix": "webtoon",
+            "images": [
+                "8",
+                0
+            ]
+        }
+    },
+    "10": {
+        "class_type": "IPAdapterApply",
+        "inputs": {
+            "ipadapter": [
+                "11",
+                0
+            ],
+            "clip_vision": [
+                "12",
+                0
+            ],
+            "image": [
+                "13",
+                0
+            ],
+            "model": [
+                "4",
+                0
+            ],
+            "weight": 0.85,
+            "noise": 0.1
+        }
+    },
+    "11": {
+        "class_type": "IPAdapterModelLoader",
+        "inputs": {
+            "ipadapter_file": "ip-adapter-plus_sdxl_vit-h.bin"
+        }
+    },
+    "12": {
+        "class_type": "CLIPVisionLoader",
+        "inputs": {
+            "clip_name": "clip_vision_g.safetensors"
+        }
+    },
+    "13": {
+        "class_type": "LoadImage",
+        "inputs": {
+            "image": "reference_mia.png"
+        }
+    }
+}
